@@ -1,5 +1,5 @@
 import type { MetaFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
+import { json } from '@vercel/remix'
 import { Link, useLoaderData } from '@remix-run/react'
 import { getPublishedPosts } from '~/utils/post.server'
 
@@ -15,7 +15,15 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const posts = await getPublishedPosts()
-  return json({ posts: posts.slice(0, 5) }) // 最新の5件のみ表示
+  return json(
+    { posts: posts.slice(0, 5) }, // 最新の5件のみ表示
+    {
+      headers: {
+        'Cache-Control':
+          'public, max-age=60, s-maxage=300, stale-while-revalidate=604800',
+      },
+    }
+  )
 }
 
 export default function Index() {

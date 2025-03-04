@@ -1,5 +1,6 @@
 import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
+import { json } from '@vercel/remix'
 import { Link, useLoaderData } from '@remix-run/react'
 import { getPost } from '~/utils/post.server'
 import { getUser } from '~/utils/auth.server'
@@ -36,7 +37,16 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     throw new Response('アクセス権限がありません', { status: 403 })
   }
 
-  return json({ post, isOwner: user?.id === post.authorId })
+  return json(
+    { post, isOwner: user?.id === post.authorId },
+    {
+      headers: {
+        'Cache-Control': post.published
+          ? 'public, max-age=60, s-maxage=300, stale-while-revalidate=604800'
+          : 'private, no-cache, no-store, must-revalidate',
+      },
+    }
+  )
 }
 
 export default function PostDetail() {
