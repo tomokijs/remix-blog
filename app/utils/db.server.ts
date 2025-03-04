@@ -1,13 +1,16 @@
 import { PrismaClient } from '@prisma/client'
 
-let db: PrismaClient
-
+// PrismaClientをグローバル変数として宣言して、開発環境でのホットリロード時に
+// 複数のPrismaClientインスタンスが作成されるのを防ぎます
 declare global {
   // eslint-disable-next-line no-var
   var __db: PrismaClient | undefined
 }
 
-// このアプローチはPrismaの推奨方法で、開発中のホットリロードでの接続数の増加を防ぎます
+// このアプローチはPrismaのドキュメントで推奨されています
+// https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices
+let db: PrismaClient
+
 if (process.env.NODE_ENV === 'production') {
   db = new PrismaClient()
 } else {

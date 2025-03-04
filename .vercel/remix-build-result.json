@@ -1,0 +1,216 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs-eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/posts.$postId.delete": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/posts.$postId.edit": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/posts.$postId": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/posts._index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/dashboard": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/posts.new": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/register": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/logout": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/_index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/login": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "app/root.tsx",
+        "config": {}
+      },
+      "routes/posts.$postId.delete": {
+        "file": "app/routes/posts.$postId.delete.tsx",
+        "id": "routes/posts.$postId.delete",
+        "path": "delete",
+        "parentId": "routes/posts.$postId",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/posts.$postId.edit": {
+        "file": "app/routes/posts.$postId.edit.tsx",
+        "id": "routes/posts.$postId.edit",
+        "path": "edit",
+        "parentId": "routes/posts.$postId",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/posts.$postId": {
+        "file": "app/routes/posts.$postId.tsx",
+        "id": "routes/posts.$postId",
+        "path": "posts/:postId",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/posts._index": {
+        "file": "app/routes/posts._index.tsx",
+        "id": "routes/posts._index",
+        "path": "posts",
+        "index": true,
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/dashboard": {
+        "file": "app/routes/dashboard.tsx",
+        "id": "routes/dashboard",
+        "path": "dashboard",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/posts.new": {
+        "file": "app/routes/posts.new.tsx",
+        "id": "routes/posts.new",
+        "path": "posts/new",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/register": {
+        "file": "app/routes/register.tsx",
+        "id": "routes/register",
+        "path": "register",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/logout": {
+        "file": "app/routes/logout.tsx",
+        "id": "routes/logout",
+        "path": "logout",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/_index": {
+        "file": "app/routes/_index.tsx",
+        "id": "routes/_index",
+        "index": true,
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/login": {
+        "file": "app/routes/login.tsx",
+        "id": "routes/login",
+        "path": "login",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "remixConfig": {
+    "appDirectory": "C:\\projects\\remix\\remix-blog\\app",
+    "basename": "/",
+    "buildDirectory": "C:\\projects\\remix\\remix-blog\\build",
+    "future": {
+      "v3_fetcherPersist": true,
+      "v3_relativeSplatPath": true,
+      "v3_throwAbortReason": true,
+      "v3_routeConfig": false,
+      "v3_singleFetch": true,
+      "v3_lazyRouteDiscovery": true,
+      "unstable_optimizeDeps": false
+    },
+    "manifest": false,
+    "publicPath": "/",
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "root.tsx"
+      },
+      "routes/posts.$postId.delete": {
+        "file": "routes/posts.$postId.delete.tsx",
+        "id": "routes/posts.$postId.delete",
+        "path": "delete",
+        "parentId": "routes/posts.$postId"
+      },
+      "routes/posts.$postId.edit": {
+        "file": "routes/posts.$postId.edit.tsx",
+        "id": "routes/posts.$postId.edit",
+        "path": "edit",
+        "parentId": "routes/posts.$postId"
+      },
+      "routes/posts.$postId": {
+        "file": "routes/posts.$postId.tsx",
+        "id": "routes/posts.$postId",
+        "path": "posts/:postId",
+        "parentId": "root"
+      },
+      "routes/posts._index": {
+        "file": "routes/posts._index.tsx",
+        "id": "routes/posts._index",
+        "path": "posts",
+        "index": true,
+        "parentId": "root"
+      },
+      "routes/dashboard": {
+        "file": "routes/dashboard.tsx",
+        "id": "routes/dashboard",
+        "path": "dashboard",
+        "parentId": "root"
+      },
+      "routes/posts.new": {
+        "file": "routes/posts.new.tsx",
+        "id": "routes/posts.new",
+        "path": "posts/new",
+        "parentId": "root"
+      },
+      "routes/register": {
+        "file": "routes/register.tsx",
+        "id": "routes/register",
+        "path": "register",
+        "parentId": "root"
+      },
+      "routes/logout": {
+        "file": "routes/logout.tsx",
+        "id": "routes/logout",
+        "path": "logout",
+        "parentId": "root"
+      },
+      "routes/_index": {
+        "file": "routes/_index.tsx",
+        "id": "routes/_index",
+        "index": true,
+        "parentId": "root"
+      },
+      "routes/login": {
+        "file": "routes/login.tsx",
+        "id": "routes/login",
+        "path": "login",
+        "parentId": "root"
+      }
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
