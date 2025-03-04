@@ -1,5 +1,4 @@
 import { db } from './db.server'
-import type { Post, User } from '@prisma/client'
 
 // 全ての投稿を取得
 export async function getPosts() {

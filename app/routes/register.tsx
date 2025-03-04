@@ -48,6 +48,7 @@ export async function action({ request }: ActionFunctionArgs) {
         name: null,
         confirmPassword: null,
       },
+      values: { name: null, email: null },
     })
   }
 
@@ -81,8 +82,14 @@ export default function Register() {
   const isSubmitting = navigation.state === 'submitting'
 
   const [formData, setFormData] = useState({
-    name: actionData?.values?.name || '',
-    email: actionData?.values?.email || '',
+    name:
+      typeof actionData?.values?.name === 'string'
+        ? actionData.values.name
+        : '',
+    email:
+      typeof actionData?.values?.email === 'string'
+        ? actionData.values.email
+        : '',
     password: '',
     confirmPassword: '',
   })
