@@ -110,7 +110,7 @@ export default function Register() {
               type="text"
               id="name"
               name="name"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.name}
               onChange={handleInputChange}
               required
@@ -131,7 +131,7 @@ export default function Register() {
               type="email"
               id="email"
               name="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.email}
               onChange={handleInputChange}
               required
@@ -152,7 +152,7 @@ export default function Register() {
               type="password"
               id="password"
               name="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.password}
               onChange={handleInputChange}
               required
@@ -173,7 +173,7 @@ export default function Register() {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.confirmPassword}
               onChange={handleInputChange}
               required

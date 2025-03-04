@@ -58,7 +58,7 @@ export default function PostDetail() {
             </div>
           </header>
 
-          <div className="prose max-w-none">
+          <div className="prose max-w-none text-gray-800">
             {post.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">
                 {paragraph}

@@ -51,6 +51,18 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
   return json({ post })
 }
 
+type ActionData = {
+  errors?: {
+    title: string | null
+    content: string | null
+  }
+  values?: {
+    title: string | null
+    content: string | null
+    publishStatus: string | null
+  }
+}
+
 export async function action({ params, request }: ActionFunctionArgs) {
   const user = await getUser(request)
   if (!user) {
@@ -85,7 +97,14 @@ export async function action({ params, request }: ActionFunctionArgs) {
 
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage)
   if (hasErrors) {
-    return json({ errors, values: { title, content, publishStatus } })
+    return json<ActionData>({
+      errors,
+      values: {
+        title: title as string | null,
+        content: content as string | null,
+        publishStatus: publishStatus as string | null,
+      },
+    })
   }
 
   // 型チェック
@@ -94,7 +113,7 @@ export async function action({ params, request }: ActionFunctionArgs) {
     typeof content !== 'string' ||
     (publishStatus !== 'draft' && publishStatus !== 'publish')
   ) {
-    return json({
+    return json<ActionData>({
       errors: {
         title: '無効な入力です',
         content: '無効な入力です',
@@ -140,7 +159,7 @@ export default function EditPost() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-8">投稿を編集</h1>
+      <h1 className="text-3xl font-bold text-gray-900 mb-8">投稿を編集</h1>
 
       <div className="bg-white rounded-lg shadow-md p-6">
         <Form method="post">
@@ -155,7 +174,7 @@ export default function EditPost() {
               type="text"
               id="title"
               name="title"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.title}
               onChange={handleInputChange}
               required
@@ -176,7 +195,7 @@ export default function EditPost() {
               id="content"
               name="content"
               rows={10}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.content}
               onChange={handleInputChange}
               required
@@ -196,7 +215,7 @@ export default function EditPost() {
             <select
               id="publishStatus"
               name="publishStatus"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.publishStatus}
               onChange={handleInputChange}
             >

@@ -27,7 +27,7 @@ export default function Dashboard() {
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">ダッシュボード</h1>
+        <h1 className="text-3xl font-bold text-gray-900">ダッシュボード</h1>
         <Link
           to="/posts/new"
           className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
@@ -37,21 +37,23 @@ export default function Dashboard() {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-        <h2 className="text-xl font-semibold mb-4">プロフィール</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          プロフィール
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <p className="text-gray-600">名前</p>
-            <p className="font-medium">{user.name || '未設定'}</p>
+            <p className="font-medium text-gray-900">{user.name || '未設定'}</p>
           </div>
           <div>
             <p className="text-gray-600">メールアドレス</p>
-            <p className="font-medium">{user.email}</p>
+            <p className="font-medium text-gray-900">{user.email}</p>
           </div>
         </div>
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-4">あなたの投稿</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">あなたの投稿</h2>
         {posts.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <p className="text-gray-600 mb-4">まだ投稿がありません。</p>

@@ -10,3 +10,12 @@ body {
     color-scheme: dark;
   }
 }
+
+/* 自動入力時の背景色と文字色を修正 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #1f2937 !important; /* text-gray-900 相当の色 */
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { Form, Link, useActionData, useNavigation } from '@remix-run/react'
 import { createUserSession, login } from '~/utils/auth.server'
 
@@ -79,7 +79,7 @@ export default function Login() {
               type="email"
               id="email"
               name="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.email}
               onChange={handleInputChange}
               required
@@ -100,7 +100,7 @@ export default function Login() {
               type="password"
               id="password"
               name="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 bg-white"
               value={formData.password}
               onChange={handleInputChange}
               required
