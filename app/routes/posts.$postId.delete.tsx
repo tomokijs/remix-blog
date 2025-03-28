@@ -3,7 +3,7 @@ import type {
   LoaderFunctionArgs,
   MetaFunction,
 } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
 import { Form, useLoaderData, useNavigation } from '@remix-run/react'
 import { getUser } from '~/utils/auth.server'
 import { deletePost, getPost } from '~/utils/post.server'
@@ -42,7 +42,7 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     return redirect(`/posts/${post.id}`)
   }
 
-  return json({ post })
+  return { post }
 }
 
 export async function action({ params, request }: ActionFunctionArgs) {

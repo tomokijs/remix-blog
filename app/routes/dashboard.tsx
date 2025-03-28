@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { getUser } from '~/utils/auth.server'
 import { getUserPosts } from '~/utils/post.server'
@@ -18,7 +18,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   }
 
   const posts = await getUserPosts(user.id)
-  return json({ user, posts })
+  return { user, posts }
 }
 
 export default function Dashboard() {

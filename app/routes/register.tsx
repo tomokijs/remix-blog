@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
 import { Form, Link, useActionData, useNavigation } from '@remix-run/react'
 import { createUserSession, register } from '~/utils/auth.server'
 import { db } from '~/utils/db.server'
@@ -32,7 +31,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage)
   if (hasErrors) {
-    return json({ errors, values: { name, email } })
+    return { errors, values: { name, email } }
   }
 
   // 型チェック
@@ -41,7 +40,7 @@ export async function action({ request }: ActionFunctionArgs) {
     typeof email !== 'string' ||
     typeof password !== 'string'
   ) {
-    return json({
+    return {
       errors: {
         email: '無効な入力です',
         password: null,
@@ -49,7 +48,7 @@ export async function action({ request }: ActionFunctionArgs) {
         confirmPassword: null,
       },
       values: { name: null, email: null },
-    })
+    }
   }
 
   // メールアドレスの重複チェック
@@ -58,7 +57,7 @@ export async function action({ request }: ActionFunctionArgs) {
   })
 
   if (existingUser) {
-    return json({
+    return {
       errors: {
         email: 'このメールアドレスは既に使用されています',
         password: null,
@@ -66,7 +65,7 @@ export async function action({ request }: ActionFunctionArgs) {
         confirmPassword: null,
       },
       values: { name, email },
-    })
+    }
   }
 
   // ユーザー登録

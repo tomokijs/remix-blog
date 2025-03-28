@@ -4,7 +4,7 @@ import type {
   LoaderFunctionArgs,
   MetaFunction,
 } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { data, redirect } from '@remix-run/node'
 import { Form, useActionData, useNavigation } from '@remix-run/react'
 import { getUser } from '~/utils/auth.server'
 import { createPost } from '~/utils/post.server'
@@ -21,7 +21,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   if (!user) {
     return redirect('/login')
   }
-  return json({})
+  return {}
 }
 
 type ActionData = {
@@ -55,7 +55,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage)
   if (hasErrors) {
-    return json<ActionData>({
+    return data<ActionData>({
       errors,
       values: {
         title: title as string | null,
@@ -71,7 +71,7 @@ export async function action({ request }: ActionFunctionArgs) {
     typeof content !== 'string' ||
     (publishStatus !== 'draft' && publishStatus !== 'publish')
   ) {
-    return json<ActionData>({
+    return data<ActionData>({
       errors: {
         title: '無効な入力です',
         content: '無効な入力です',

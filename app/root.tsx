@@ -8,7 +8,6 @@ import {
   useLoaderData,
 } from '@remix-run/react'
 import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
-import { json } from '@remix-run/node'
 
 import './tailwind.css'
 import { getUser } from './utils/auth.server'
@@ -28,7 +27,7 @@ export const links: LinksFunction = () => [
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const user = await getUser(request)
-  return json({ user })
+  return { user }
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {

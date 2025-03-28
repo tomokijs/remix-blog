@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
 import { Form, Link, useActionData, useNavigation } from '@remix-run/react'
 import { createUserSession, login } from '~/utils/auth.server'
 
@@ -24,22 +23,22 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage)
   if (hasErrors) {
-    return json({ errors })
+    return { errors }
   }
 
   // ログイン処理
   if (typeof email !== 'string' || typeof password !== 'string') {
-    return json({ errors: { email: '無効な入力です', password: null } })
+    return { errors: { email: '無効な入力です', password: null } }
   }
 
   const user = await login({ email, password })
   if (!user) {
-    return json({
+    return {
       errors: {
         email: 'メールアドレスまたはパスワードが正しくありません',
         password: null,
       },
-    })
+    }
   }
 
   // セッション作成とリダイレクト

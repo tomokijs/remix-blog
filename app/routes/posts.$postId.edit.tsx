@@ -4,7 +4,7 @@ import type {
   LoaderFunctionArgs,
   MetaFunction,
 } from '@remix-run/node'
-import { json, redirect } from '@remix-run/node'
+import { data, redirect } from '@remix-run/node'
 import {
   Form,
   useActionData,
@@ -48,7 +48,7 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     return redirect(`/posts/${post.id}`)
   }
 
-  return json({ post })
+  return { post }
 }
 
 type ActionData = {
@@ -97,7 +97,7 @@ export async function action({ params, request }: ActionFunctionArgs) {
 
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage)
   if (hasErrors) {
-    return json<ActionData>({
+    return data<ActionData>({
       errors,
       values: {
         title: title as string | null,
@@ -113,7 +113,7 @@ export async function action({ params, request }: ActionFunctionArgs) {
     typeof content !== 'string' ||
     (publishStatus !== 'draft' && publishStatus !== 'publish')
   ) {
-    return json<ActionData>({
+    return data<ActionData>({
       errors: {
         title: '無効な入力です',
         content: '無効な入力です',
