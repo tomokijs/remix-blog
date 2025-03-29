@@ -1,6 +1,6 @@
-import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node'
-import { data, redirect } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
+import type { LoaderFunctionArgs, MetaFunction } from 'react-router'
+import { data, redirect, Link, useLoaderData } from 'react-router'
+
 import { getPost } from '~/utils/post.server'
 import { getUser } from '~/utils/auth.server'
 

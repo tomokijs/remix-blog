@@ -3,9 +3,14 @@ import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
   MetaFunction,
-} from '@remix-run/node'
-import { data, redirect } from '@remix-run/node'
-import { Form, useActionData, useNavigation } from '@remix-run/react'
+} from 'react-router'
+import {
+  data,
+  redirect,
+  Form,
+  useActionData,
+  useNavigation,
+} from 'react-router'
 import { getUser } from '~/utils/auth.server'
 import { createPost } from '~/utils/post.server'
 
@@ -129,7 +134,7 @@ export default function NewPost() {
               type="text"
               id="title"
               name="title"
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.title}
               onChange={handleInputChange}
               required
@@ -150,7 +155,7 @@ export default function NewPost() {
               id="content"
               name="content"
               rows={10}
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.content}
               onChange={handleInputChange}
               required
@@ -170,7 +175,7 @@ export default function NewPost() {
             <select
               id="publishStatus"
               name="publishStatus"
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.publishStatus}
               onChange={handleInputChange}
             >
@@ -190,7 +195,7 @@ export default function NewPost() {
             </button>
             <button
               type="submit"
-              className="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
               disabled={isSubmitting}
             >
               {isSubmitting ? '保存中...' : '保存'}

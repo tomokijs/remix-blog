@@ -6,8 +6,8 @@ import {
   ScrollRestoration,
   Link,
   useLoaderData,
-} from '@remix-run/react'
-import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
+} from 'react-router'
+import type { LinksFunction, LoaderFunctionArgs } from 'react-router'
 
 import './tailwind.css'
 import { getUser } from './utils/auth.server'

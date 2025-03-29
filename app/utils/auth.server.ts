@@ -1,6 +1,6 @@
 import { db } from './db.server'
 import bcrypt from 'bcryptjs'
-import { createCookieSessionStorage, redirect } from '@remix-run/node'
+import { createCookieSessionStorage, redirect } from 'react-router'
 
 // セッションストレージの設定
 const sessionStorage = createCookieSessionStorage({

@@ -2,9 +2,9 @@ import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
   MetaFunction,
-} from '@remix-run/node'
-import { redirect } from '@remix-run/node'
-import { Form, useLoaderData, useNavigation } from '@remix-run/react'
+} from 'react-router'
+import { redirect, Form, useLoaderData, useNavigation } from 'react-router'
+
 import { getUser } from '~/utils/auth.server'
 import { deletePost, getPost } from '~/utils/post.server'
 
@@ -95,7 +95,7 @@ export default function DeletePost() {
             </button>
             <button
               type="submit"
-              className="rounded-md bg-red-600 px-4 py-2 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              className="rounded-md bg-red-600 px-4 py-2 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none"
               disabled={isSubmitting}
             >
               {isSubmitting ? '削除中...' : '削除する'}

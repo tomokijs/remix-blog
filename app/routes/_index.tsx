@@ -1,6 +1,5 @@
-import type { MetaFunction } from '@remix-run/node'
-import { data } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
+import type { MetaFunction } from 'react-router'
+import { data, Link, useLoaderData } from 'react-router'
 import { getPublishedPosts } from '~/utils/post.server'
 
 export const meta: MetaFunction = () => {

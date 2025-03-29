@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node'
-import { Form, Link, useActionData, useNavigation } from '@remix-run/react'
+import type { ActionFunctionArgs, MetaFunction } from 'react-router'
+import { Form, Link, useActionData, useNavigation } from 'react-router'
 import { createUserSession, login } from '~/utils/auth.server'
 
 export const meta: MetaFunction = () => {
@@ -78,7 +78,7 @@ export default function Login() {
               type="email"
               id="email"
               name="email"
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.email}
               onChange={handleInputChange}
               required
@@ -99,7 +99,7 @@ export default function Login() {
               type="password"
               id="password"
               name="password"
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.password}
               onChange={handleInputChange}
               required
@@ -111,7 +111,7 @@ export default function Login() {
 
           <button
             type="submit"
-            className="w-full rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="w-full rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'ログイン中...' : 'ログイン'}

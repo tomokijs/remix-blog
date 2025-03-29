@@ -3,14 +3,16 @@ import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
   MetaFunction,
-} from '@remix-run/node'
-import { data, redirect } from '@remix-run/node'
+} from 'react-router'
 import {
+  data,
+  redirect,
   Form,
   useActionData,
   useLoaderData,
   useNavigation,
-} from '@remix-run/react'
+} from 'react-router'
+
 import { getUser } from '~/utils/auth.server'
 import { getPost, updatePost } from '~/utils/post.server'
 
@@ -174,7 +176,7 @@ export default function EditPost() {
               type="text"
               id="title"
               name="title"
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.title}
               onChange={handleInputChange}
               required
@@ -195,7 +197,7 @@ export default function EditPost() {
               id="content"
               name="content"
               rows={10}
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.content}
               onChange={handleInputChange}
               required
@@ -215,7 +217,7 @@ export default function EditPost() {
             <select
               id="publishStatus"
               name="publishStatus"
-              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-md border bg-white px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={formData.publishStatus}
               onChange={handleInputChange}
             >
@@ -235,7 +237,7 @@ export default function EditPost() {
             </button>
             <button
               type="submit"
-              className="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
               disabled={isSubmitting}
             >
               {isSubmitting ? '保存中...' : '保存'}
